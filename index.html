@@ -55,6 +55,11 @@
   ul.plain li { margin: 0 0 10px; }
   footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--muted); }
   @media (max-width: 480px) { body { font-size: 16px; } header h1 { font-size: 1.7rem; } .card { padding: 18px 16px 14px; } }
+  .shots { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0 6px; }
+  .shots figure { margin: 0; }
+  .shots img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 6px; }
+  .shots figcaption { font-size: 0.85rem; color: var(--muted); margin-top: 4px; }
+  @media (max-width: 520px) { .shots { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -130,6 +135,10 @@
       <li><b><a href="https://github.com/calvinslinde/grader-check-kit">Grader-check kit</a>.</b> Checks an AI grader before you trust its numbers. MIT.</li>
       <li><b><a href="https://github.com/calvinslinde/chess-training">Chess training toolkit</a>.</b> Pulls your games from chess.com or lichess, finds the mistakes that cost you the most, and turns them into drill cards. GPL-3.0.</li>
     </ul>
+    <div class="shots">
+      <figure><a href="https://calvinslinde.github.io/drill-room/"><img src="shot-drill-room.png" alt="Drill Room's home screen in the browser: the passage bank, progress, and the sets by section" loading="lazy" width="1200" height="800"></a><figcaption>Drill Room, in the browser.</figcaption></figure>
+      <figure><a href="https://github.com/calvinslinde/chess-training"><img src="shot-chess-report.png" alt="The chess toolkit's review report for the Opera Game: per-move drops, labels, and the critical moments with boards" loading="lazy" width="1100" height="900"></a><figcaption>The chess toolkit's review report for the example game.</figcaption></figure>
+    </div>
     <p class="source">Released October 18 and 19, 2026. I tested every piece before publishing and the tests are in the repos.</p>
   </div>
 
