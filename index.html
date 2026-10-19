@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Calvin Slinde</title>
+<meta name="description" content="Calvin Slinde builds AI systems that work and checks their work. Biochemistry, UW–Madison; phlebotomist at a nonprofit health system.">
+<style>
+  :root {
+    --bg: #fbfaf7; --surface: #ffffff; --ink: #1b1b1a; --muted: #5d5b55; --line: #e4e1d9;
+    --accent: #1f4e79; --accent-soft: #e8f0f8; --source: #6b6862; --mine: #9a3412; --mine-bg: #fff7ed;
+    --radius: 10px; --max: 760px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141413; --surface: #1d1d1b; --ink: #ecebe6; --muted: #a9a69e; --line: #33322e;
+      --accent: #8cb8e6; --accent-soft: #1d2a37; --source: #9a978f; --mine: #fdba74; --mine-bg: #2a1d12;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141413; --surface: #1d1d1b; --ink: #ecebe6; --muted: #a9a69e; --line: #33322e;
+    --accent: #8cb8e6; --accent-soft: #1d2a37; --source: #9a978f; --mine: #fdba74; --mine-bg: #2a1d12;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 var(--font); }
+  main { max-width: var(--max); margin: 0 auto; padding: 48px 16px 64px; }
+  a { color: var(--accent); text-underline-offset: 2px; }
+  header h1 { font-size: 2rem; line-height: 1.2; margin: 0 0 12px; letter-spacing: -0.01em; }
+  .lead { font-size: 1.15rem; margin: 0 0 16px; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin: 0 0 12px; padding: 0; list-style: none; font-size: 0.95rem; }
+  .note { font-size: 0.9rem; color: var(--muted); margin: 0; }
+  h2 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 48px 0 16px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 22px 18px; margin: 0 0 18px; }
+  .card h3 { font-size: 1.2rem; margin: 0 0 4px; line-height: 1.3; }
+  .what { color: var(--muted); margin: 0 0 14px; }
+  dl { margin: 0; }
+  dt { font-weight: 650; font-size: 0.92rem; margin-top: 12px; }
+  dd { margin: 2px 0 0; }
+  .num { background: var(--accent-soft); border-radius: 4px; padding: 0 4px; font-variant-numeric: tabular-nums; }
+  .source { font-family: var(--mono); font-size: 0.78rem; color: var(--source); margin-top: 14px; border-top: 1px dashed var(--line); padding-top: 10px; word-break: break-word; }
+  .mine { color: var(--mine); background: var(--mine-bg); border: 1px dashed var(--mine); border-radius: 6px; padding: 4px 8px; display: inline-block; font-size: 0.92rem; }
+  blockquote { margin: 10px 0; padding: 2px 0 2px 14px; border-left: 3px solid var(--accent); color: var(--ink); }
+  ul.plain { margin: 0; padding-left: 20px; }
+  ul.plain li { margin: 0 0 10px; }
+  footer { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 0.9rem; color: var(--muted); }
+  @media (max-width: 480px) { body { font-size: 16px; } header h1 { font-size: 1.7rem; } .card { padding: 18px 16px 14px; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Calvin Slinde</h1>
+    <p class="lead">I build AI systems that work, and I check their work. I'm finishing a biochemistry degree at UW–Madison and draw blood at a nonprofit health system.</p>
+    <ul class="links">
+      <!-- Contact: add the professional address here once it exists. The private Gmail never goes on this page. -->
+      <!-- LinkedIn: add the link here once the profile is live -->
+      <li><a href="https://github.com/Gameassassin777">GitHub</a></li>
+    </ul>
+    <p class="note">Each claim below names its source: a file from the project itself. I can share any of them.</p>
+  </header>
+
+  <h2>What I've built</h2>
+
+  <article class="card" id="semester">
+    <h3>Semester: an AI agent that runs my school term</h3>
+    <p class="what">Four courses, two inboxes, and a degree audit, each with its own deadlines, turned into one note that says what to do first.</p>
+    <dl>
+      <dt>What it does</dt>
+      <dd>Every 30 minutes it reads Canvas, Outlook, Gmail, and my degree audit. Claude Opus decides what matters today and drafts replies. A rule-based plan takes over whenever the model can't be reached.</dd>
+      <dt>The decision that mattered most</dt>
+      <dd>It drafts; it never sends, submits, or enrolls. The standing rule it reads on every run:
+        <blockquote>Never send email, submit work, enroll, or change accounts without my explicit approval. Draft, then wait.</blockquote>
+        My overrides always win.</dd>
+      <dt>What went wrong</dt>
+      <dd>In <span class="num">47</span> days the model call failed <span class="num">804</span> times; the most common recorded cause was an expired login. The live Canvas connection was unavailable at some point on <span class="num">36</span> of those days. Twice the model dropped assignments it had itself marked as unverifiable. The rule-based fallback kept the system running through all of it.</dd>
+    </dl>
+    <p class="source">Sources: semester/out/run.log and decisions.log (Sep 2 – Oct 18, 2026) · semester/config/instructions.md · semester/README.md</p>
+  </article>
+
+  <article class="card" id="council">
+    <h3>Council: can many cheap models match one strong one?</h3>
+    <p class="what">A test bench for whether a group of very cheap models can stand in for a strong model, and where they can't.</p>
+    <dl>
+      <dt>What I measured</dt>
+      <dd><span class="num">220</span> samples across <span class="num">18</span> problems, plus head-to-head trials on an open research problem.</dd>
+      <dt>What went wrong</dt>
+      <dd>Four bugs in my own grader each made the models look more capable than they were. Every headline number before the fix was false. I rebuilt the grader with <span class="num">18</span> unit tests. Separately, once I validated the AI judge, <span class="num">17</span> of <span class="num">42</span> earlier verdicts flipped.</dd>
+      <dt>The decision that mattered most</dt>
+      <dd>Keep the overturned claims on the record:
+        <blockquote>A record that quietly deletes its own errors is not a record.</blockquote></dd>
+      <dt>What it found</dt>
+      <dd>On problems with one checkable answer, the group added nothing over a simple vote. On an open problem, the cheap group found a flaw the strong model missed, at about <span class="num">1/70</span> of the cost. The strong model was better at building the solution. That was one trial, and I was the judge.</dd>
+    </dl>
+    <p class="source">Source: council/FINDINGS.md (August 2026)</p>
+  </article>
+
+  <article class="card" id="blinx">
+    <h3>Blinx Co-op: a 2002 Xbox game, online for my friends and family</h3>
+    <p class="what">Mac, Windows, and browser versions of <i>Blinx: The Time Sweeper</i>, with up to six players online. Built with Claude: first file decoded October 3, 2026; Mac and Windows releases for friends by October 10.</p>
+    <dl>
+      <dt>What it took</dt>
+      <dd>Decoding the game's file formats, rebuilding it to run natively, and adding online play that keeps every player's game identical. Releases update themselves.</dd>
+      <dt>The decision that mattered most</dt>
+      <dd>Ship no game files. Each player uses their own copy of the game; the rest is built from it on their machine.</dd>
+      <dt>What went wrong</dt>
+      <dd>Keeping Mac and Windows copies identical took two things: matching the original console's number rounding exactly, and fixing two decompiler errors. Checked over <span class="num">14</span> stages: <span class="num">0</span> desyncs.</dd>
+    </dl>
+    <p class="source">Sources: blinx/STATUS.md · blinx/JOURNAL.md (October 2026). The release itself is private.</p>
+  </article>
+
+  <h2>How I check AI's work</h2>
+  <div class="card">
+    <ul class="plain">
+      <li><b>Every claim ends in a fact, a definition, or "unknown."</b> I wrote a procedure that asks "why is that true, and how do we know?" until each step bottoms out. I revised it on September 10, 2026, after I caught it accepting a sourced fact inside an invalid inference.</li>
+      <li><b>Facts get checked at their source.</b> A fact-checking agent I set up checks claims against PubMed and primary sources and reports a verdict with its confidence.</li>
+      <li><b>No building on unconfirmed facts.</b> If a fact can't be confirmed in its primary source, the work stops until it can.</li>
+      <li><b>Test the tester.</b> From Council: <i>"An unverified harness manufactures capability that isn't there."</i></li>
+    </ul>
+    <p class="source">Sources: .claude/skills/why-chain/SKILL.md · .claude/agents/research-verify.md · .claude/CLAUDE.md · council/FINDINGS.md</p>
+  </div>
+
+  <h2>Released tools</h2>
+  <div class="card">
+    <ul class="plain">
+      <li><b><a href="https://github.com/Gameassassin777/claude-verification-kit">Verification kit for Claude Code</a>.</b> The why-chain procedure, the fact-checking agent, and the confirm-before-acting rules from the section above, packaged so anyone can add them to Claude Code. MIT.</li>
+      <li><b><a href="https://github.com/Gameassassin777/grader-check-kit">Grader-check kit</a>.</b> The answer matcher from Council with its tests, plus a tool that checks an AI judge against a person's verdicts before its numbers are trusted. MIT.</li>
+    </ul>
+    <p class="source">Both released 2026-10-18. Every piece was tested before publishing; the tests are in the repos.</p>
+  </div>
+
+  <h2>Work, research, and service</h2>
+  <div class="card">
+    <ul class="plain">
+      <li><b>Phlebotomist, SSM Health</b>, a nonprofit health system, Madison · Aug 2025 – present. Two-identifier patient verification on every draw.</li>
+      <li><b>Co-author, IEEE EMBC 2022.</b> A wearable bio-impedance analyzer; I contributed the microcontroller firmware. <a href="https://doi.org/10.1109/EMBC48229.2022.9871827">doi:10.1109/EMBC48229.2022.9871827</a></li>
+      <li><b>Assistant coach, mentor, and lead programmer</b>, BadgerBOTS FIRST LEGO League · 2015–2020.</li>
+      <li><b>Small-group leader</b>, InterVarsity Christian Fellowship, UW–Eau Claire · 2024–2025.</li>
+      <li><b>B.S. Biochemistry</b>, UW–Madison, expected May 2027.</li>
+    </ul>
+    <p class="source">Source: resume, July 2026 · DARS degree audit, Sept 2026</p>
+  </div>
+
+  <footer>
+    Calvin Slinde · Madison, Wisconsin
+  </footer>
+</main>
+</body>
+</html>
