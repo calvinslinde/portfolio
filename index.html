@@ -53,25 +53,25 @@
 <main>
   <header>
     <h1>Calvin Slinde</h1>
-    <p class="lead">I build AI systems that work, and I check their work. I'm finishing a biochemistry degree at UW–Madison and draw blood at a nonprofit health system.</p>
+    <p class="lead">I build AI systems and I check their work. I'm finishing a biochemistry degree at UW–Madison, and I draw blood at a nonprofit health system.</p>
     <ul class="links">
       <li><a href="mailto:calvinslinde@gmail.com">calvinslinde@gmail.com</a></li>
       <li><a href="https://www.linkedin.com/in/calvinslinde/">LinkedIn</a></li>
       <li><a href="https://github.com/calvinslinde">GitHub</a></li>
     </ul>
-    <p class="note">Each claim below names its source: a file from the project itself. I can share any of them.</p>
+    <p class="note">Every claim below names its source, a file from the project itself. Ask and I'll show you any of them.</p>
   </header>
 
   <h2>What I've built</h2>
 
   <article class="card" id="semester">
     <h3>Semester: an AI agent that runs my school term</h3>
-    <p class="what">Four courses, two inboxes, and a degree audit, each with its own deadlines, turned into one note that says what to do first.</p>
+    <p class="what">Four courses, two inboxes, and a degree audit all have their own deadlines. Semester turns them into one note that tells me what to do first.</p>
     <dl>
       <dt>What it does</dt>
-      <dd>Every 30 minutes it reads Canvas, Outlook, Gmail, and my degree audit. Claude Opus decides what matters today and drafts replies. A rule-based plan takes over whenever the model can't be reached.</dd>
+      <dd>Every 30 minutes it reads Canvas, Outlook, Gmail, and my degree audit. Claude Opus decides what matters today and drafts the replies. If the model can't be reached, a rule-based plan takes over so the app never goes blind.</dd>
       <dt>The decision that mattered most</dt>
-      <dd>It drafts; it never sends, submits, or enrolls. The standing rule it reads on every run:
+      <dd>It drafts. It never sends, submits, or enrolls. The rule it reads on every run:
         <blockquote>Never send email, submit work, enroll, or change accounts without my explicit approval. Draft, then wait.</blockquote>
         My overrides always win.</dd>
       <dt>What went wrong</dt>
@@ -82,17 +82,16 @@
 
   <article class="card" id="council">
     <h3>Council: can many cheap models match one strong one?</h3>
-    <p class="what">A test bench for whether a group of very cheap models can stand in for a strong model, and where they can't.</p>
+    <p class="what">A test bench for one question: can a group of very cheap models stand in for a strong one, and where do they fall short?</p>
     <dl>
       <dt>What I measured</dt>
       <dd><span class="num">220</span> samples across <span class="num">18</span> problems, plus head-to-head trials on an open research problem.</dd>
       <dt>What went wrong</dt>
-      <dd>Four bugs in my own grader each made the models look more capable than they were. Every headline number before the fix was false. I rebuilt the grader with <span class="num">18</span> unit tests. Separately, once I validated the AI judge, <span class="num">17</span> of <span class="num">42</span> earlier verdicts flipped.</dd>
+      <dd>Four bugs in my own grader each made the models look more capable than they were. Every headline number I had before the fix was wrong. I rebuilt the grader with <span class="num">18</span> unit tests. Separately, once I validated the AI judge, <span class="num">17</span> of <span class="num">42</span> earlier verdicts flipped.</dd>
       <dt>The decision that mattered most</dt>
-      <dd>Keep the overturned claims on the record:
-        <blockquote>A record that quietly deletes its own errors is not a record.</blockquote></dd>
+      <dd>Keep every overturned claim on the record. If a results log can delete its own mistakes, nobody can trust it, including me.</dd>
       <dt>What it found</dt>
-      <dd>On problems with one checkable answer, the group added nothing over a simple vote. On an open problem, the cheap group found a flaw the strong model missed, at about <span class="num">1/70</span> of the cost. The strong model was better at building the solution. That was one trial, and I was the judge.</dd>
+      <dd>On problems with one checkable answer, the group added nothing over a simple vote. On an open problem, the cheap group found a flaw the strong model missed, at about <span class="num">1/70</span> of the cost. The strong model was still better at building the solution. That was one trial, and I was the judge, so I hold it loosely.</dd>
     </dl>
     <p class="source">Source: council/FINDINGS.md (August 2026)</p>
   </article>
@@ -102,11 +101,11 @@
     <p class="what">Mac, Windows, and browser versions of <i>Blinx: The Time Sweeper</i>, with up to six players online. Built with Claude: first file decoded October 3, 2026; Mac and Windows releases for friends by October 10.</p>
     <dl>
       <dt>What it took</dt>
-      <dd>Decoding the game's file formats, rebuilding it to run natively, and adding online play that keeps every player's game identical. Releases update themselves.</dd>
+      <dd>Decoding the game's file formats, rebuilding it to run natively, and adding online play that keeps every player's game identical. The releases update themselves.</dd>
       <dt>The decision that mattered most</dt>
-      <dd>Ship no game files. Each player uses their own copy of the game; the rest is built from it on their machine.</dd>
+      <dd>Ship no game files. Each player uses their own copy of the game, and everything else gets built from it on their machine.</dd>
       <dt>What went wrong</dt>
-      <dd>Keeping Mac and Windows copies identical took two things: matching the original console's number rounding exactly, and fixing two decompiler errors. Checked over <span class="num">14</span> stages: <span class="num">0</span> desyncs.</dd>
+      <dd>Keeping the Mac and Windows builds identical took two fixes: matching the original console's number rounding exactly, and finding two errors in the decompiled code. I checked <span class="num">14</span> stages: <span class="num">0</span> desyncs.</dd>
     </dl>
     <p class="source">Sources: blinx/STATUS.md · blinx/JOURNAL.md (October 2026). The release itself is private.</p>
   </article>
@@ -114,9 +113,9 @@
   <h2>How I check AI's work</h2>
   <div class="card">
     <ul class="plain">
-      <li><b>Every claim ends in a fact, a definition, or "unknown."</b> I wrote a procedure that asks "why is that true, and how do we know?" until each step bottoms out. I revised it on September 10, 2026, after I caught it accepting a sourced fact inside an invalid inference.</li>
-      <li><b>Facts get checked at their source.</b> A fact-checking agent I set up checks claims against PubMed and primary sources and reports a verdict with its confidence.</li>
-      <li><b>No building on unconfirmed facts.</b> If a fact can't be confirmed in its primary source, the work stops until it can.</li>
+      <li><b>Every claim ends in a fact, a definition, or "unknown."</b> I wrote a procedure that keeps asking "why is that true, and how do we know?" until each step bottoms out. I revised it on September 10, 2026, after I caught it accepting a sourced fact inside an invalid inference.</li>
+      <li><b>Facts get checked at their source.</b> A fact-checking agent I set up reads the actual papers on PubMed and the primary sources, then reports a verdict with its confidence.</li>
+      <li><b>No building on unconfirmed facts.</b> If something can't be confirmed in its primary source, the work stops until it can.</li>
       <li><b>Test the tester.</b> From Council: <i>"An unverified harness manufactures capability that isn't there."</i></li>
     </ul>
     <p class="source">Sources: .claude/skills/why-chain/SKILL.md · .claude/agents/research-verify.md · .claude/CLAUDE.md · council/FINDINGS.md</p>
@@ -128,7 +127,7 @@
       <li><b><a href="https://github.com/calvinslinde/claude-verification-kit">Verification kit for Claude Code</a>.</b> The why-chain procedure, the fact-checking agent, and the confirm-before-acting rules from the section above, packaged so anyone can add them to Claude Code. MIT.</li>
       <li><b><a href="https://github.com/calvinslinde/grader-check-kit">Grader-check kit</a>.</b> The answer matcher from Council with its tests, plus a tool that checks an AI judge against a person's verdicts before its numbers are trusted. MIT.</li>
     </ul>
-    <p class="source">Both released 2026-10-18. Every piece was tested before publishing; the tests are in the repos.</p>
+    <p class="source">Both released October 18, 2026. I tested every piece before publishing, and the tests are in the repos.</p>
   </div>
 
   <h2>Work, research, and service</h2>
