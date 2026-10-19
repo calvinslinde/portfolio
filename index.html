@@ -53,20 +53,20 @@
 <main>
   <header>
     <h1>Calvin Slinde</h1>
-    <p class="lead">I build AI systems and I check their work. I'm finishing a biochemistry degree at UW–Madison, and I draw blood at a nonprofit health system.</p>
+    <p class="lead">I make tools with Claude and then I make sure they actually work. I'm finishing a biochemistry degree at UW–Madison and I draw blood at a nonprofit health system. I'm going into medicine.</p>
     <ul class="links">
       <li><a href="mailto:calvinslinde@gmail.com">calvinslinde@gmail.com</a></li>
       <li><a href="https://www.linkedin.com/in/calvinslinde/">LinkedIn</a></li>
       <li><a href="https://github.com/calvinslinde">GitHub</a></li>
     </ul>
-    <p class="note">Every claim below names its source, a file from the project itself. Ask and I'll show you any of them.</p>
+    <p class="note">Every claim on this page says which file it comes from. Ask me and I'll show you any of them.</p>
   </header>
 
   <h2>What I've built</h2>
 
   <article class="card" id="semester">
     <h3>Semester: a deadline planner</h3>
-    <p class="what">It reads my course sites, two inboxes, and my degree audit and tells me what's due. It drafts; I decide. Built with Claude, in use since September 2026.</p>
+    <p class="what">I built it with Claude. It reads my course sites, my two inboxes, and my degree audit and tells me what's due. It drafts things and I decide what to do with them. I've used it since September 2026.</p>
     <dl>
     </dl>
     <p class="source">Source: semester/README.md</p>
@@ -74,30 +74,30 @@
 
   <article class="card" id="council">
     <h3>Council: can many cheap models match one strong one?</h3>
-    <p class="what">A test bench for one question: can a group of very cheap models stand in for a strong one, and where do they fall short?</p>
+    <p class="what">I wanted to know if a group of very cheap models could do what one strong model does, and where they would fall short, so I built a test bench to find out.</p>
     <dl>
       <dt>What I measured</dt>
-      <dd><span class="num">220</span> samples across <span class="num">18</span> problems, plus head-to-head trials on an open research problem.</dd>
+      <dd>I ran <span class="num">220</span> samples across <span class="num">18</span> problems, and then head-to-head trials on an open research problem.</dd>
       <dt>What I caught</dt>
-      <dd>I found four bugs in my grader that had inflated the models' scores, fixed them, and rebuilt the grader with <span class="num">18</span> unit tests. Then I checked the AI judge against my own verdicts: <span class="num">17</span> of its <span class="num">42</span> earlier calls changed, so I threw its numbers out until it agreed with a person.</dd>
+      <dd>When I checked the grader I found four bugs that were making the models look better than they were. I fixed them and rebuilt the grader with <span class="num">18</span> unit tests. Then I checked the AI judge against my own verdicts. <span class="num">17</span> of its <span class="num">42</span> earlier calls changed, so I threw its numbers out until it agreed with a person.</dd>
       <dt>The decision that mattered most</dt>
-      <dd>Every result I had to correct stays in the log, so the log can be trusted.</dd>
+      <dd>I left every result I had to correct in the log next to the fixed one, so anyone reading it can see what went wrong and what changed.</dd>
       <dt>What it found</dt>
-      <dd>On problems with one checkable answer, the group added nothing over a simple vote. On an open problem, the cheap group found a flaw the strong model missed, at about <span class="num">1/70</span> of the cost. The strong model was still better at building the solution. That was one trial, and I was the judge, so I hold it loosely.</dd>
+      <dd>On problems with one checkable answer, the group added nothing over a simple vote. On the open problem the cheap group found a flaw the strong model had missed, at about <span class="num">1/70</span> of the cost, but the strong model was still better at actually building the solution. That was one trial and I was the judge, so I don't put much weight on it yet.</dd>
     </dl>
     <p class="source">Source: council/FINDINGS.md (August 2026) · code and findings: <a href="https://github.com/calvinslinde/council">github.com/calvinslinde/council</a></p>
   </article>
 
   <article class="card" id="blinx">
     <h3>Blinx Co-op: a 2002 Xbox game, online for my friends and family</h3>
-    <p class="what">Mac, Windows, and browser versions of <i>Blinx: The Time Sweeper</i>, with up to six players online. Built with Claude: first file decoded October 3, 2026; Mac and Windows releases for friends by October 10.</p>
+    <p class="what">I got <i>Blinx: The Time Sweeper</i> running on Mac, Windows, and in the browser with up to six players online, so my friends and family could play it together. I built it with Claude. I decoded the first file on October 3, 2026 and friends had Mac and Windows releases by October 10.</p>
     <dl>
       <dt>What it took</dt>
-      <dd>Decoding the game's file formats, rebuilding it to run natively, and adding online play that keeps every player's game identical. The releases update themselves.</dd>
+      <dd>I had to decode the game's file formats, rebuild it to run natively, and add online play that keeps every player's game identical. The releases update themselves.</dd>
       <dt>The decision that mattered most</dt>
-      <dd>Ship no game files. Each player uses their own copy of the game, and everything else gets built from it on their machine.</dd>
+      <dd>I don't ship any game files. Everyone uses their own copy of the game and everything else gets built from it on their machine.</dd>
       <dt>What was hard</dt>
-      <dd>Keeping the Mac and Windows builds identical took two fixes: matching the original console's number rounding exactly, and finding two errors in the decompiled code. I checked <span class="num">14</span> stages: <span class="num">0</span> desyncs.</dd>
+      <dd>Keeping the Mac and Windows builds identical took two fixes. I had to match the original console's number rounding exactly, and I found two errors in the decompiled code. I checked <span class="num">14</span> stages and got <span class="num">0</span> desyncs.</dd>
     </dl>
     <p class="source">Sources: blinx/STATUS.md · blinx/JOURNAL.md (October 2026). The release is private because the game is copyrighted.</p>
   </article>
@@ -105,10 +105,10 @@
   <h2>How I check AI's work</h2>
   <div class="card">
     <ul class="plain">
-      <li><b>Every claim ends in a fact, a definition, or "unknown."</b> I wrote a procedure that keeps asking "why is that true, and how do we know?" until each step bottoms out. I revised it on September 10, 2026, after I caught it accepting a sourced fact inside an invalid inference.</li>
-      <li><b>Facts get checked at their source.</b> A fact-checking agent I set up reads the actual papers on PubMed and the primary sources, then reports a verdict with its confidence.</li>
-      <li><b>No building on unconfirmed facts.</b> If something can't be confirmed in its primary source, the work stops until it can.</li>
-      <li><b>Test the tester.</b> From Council: <i>"An unverified harness manufactures capability that isn't there."</i></li>
+      <li>I wrote a procedure that keeps asking why something is true and how we know, until every step ends in a fact, a definition, or "unknown." I revised it on September 10, 2026 after I caught it accepting a sourced fact inside an invalid inference.</li>
+      <li>I set up an agent that checks facts against the actual papers on PubMed and the primary sources, and reports a verdict and how sure it is.</li>
+      <li>I don't build on anything unconfirmed. If a fact can't be confirmed in its primary source, the work stops until it can.</li>
+      <li>I test the tester. The line I took from Council: <i>"An unverified harness manufactures capability that isn't there."</i></li>
     </ul>
     <p class="source">Sources: .claude/skills/why-chain/SKILL.md · .claude/agents/research-verify.md · .claude/CLAUDE.md · council/FINDINGS.md</p>
   </div>
@@ -116,18 +116,18 @@
   <h2>Released tools</h2>
   <div class="card">
     <ul class="plain">
-      <li><b><a href="https://github.com/calvinslinde/claude-verification-kit">Verification kit for Claude Code</a>.</b> The why-chain procedure, the fact-checking agent, and the confirm-before-acting rules from the section above, packaged so anyone can add them to Claude Code. MIT.</li>
-      <li><b><a href="https://github.com/calvinslinde/council">Council</a>.</b> The runner, the validated judge, and the findings from the study above, with the overturned claims kept on the record. MIT.</li>
-      <li><b><a href="https://github.com/calvinslinde/drill-room">Drill Room</a>.</b> MCAT-style passage practice that runs from a folder, with original passage sets and tools that check question quality the way the exam's writers do. Built for my own prep and packaged so my brother could run it. MIT.</li>
-      <li><b><a href="https://github.com/calvinslinde/grader-check-kit">Grader-check kit</a>.</b> The answer matcher from Council with its tests, plus a tool that checks an AI judge against a person's verdicts before its numbers are trusted. MIT.</li>
+      <li><b><a href="https://github.com/calvinslinde/claude-verification-kit">Verification kit for Claude Code</a>.</b> The procedure, the fact-checking agent, and the confirm-first rules from the section above, packaged so anyone can add them to Claude Code. MIT.</li>
+      <li><b><a href="https://github.com/calvinslinde/council">Council</a>.</b> The runner, the judge I checked against a person, and the findings from the study above, with the overturned claims left in. MIT.</li>
+      <li><b><a href="https://calvinslinde.github.io/drill-room/">Drill Room</a>.</b> MCAT passage practice with 22 passage sets and the tools I used to check that the questions were actually fair. I made it for my own prep and packaged it so my brother could run it. Use it in your browser, or get the <a href="https://github.com/calvinslinde/drill-room">code</a>. MIT.</li>
+      <li><b><a href="https://github.com/calvinslinde/grader-check-kit">Grader-check kit</a>.</b> The answer matcher from Council with its tests, and a tool that checks an AI judge against a person's verdicts before you trust its numbers are trusted. MIT.</li>
     </ul>
-    <p class="source">Released October 18 and 19, 2026. I tested every piece before publishing, and the tests are in the repos.</p>
+    <p class="source">Released October 18 and 19, 2026. I tested every piece before publishing and the tests are in the repos.</p>
   </div>
 
   <h2>Work, research, and service</h2>
   <div class="card">
     <ul class="plain">
-      <li><b>Phlebotomist, SSM Health</b>, a nonprofit health system, Madison · Aug 2025 – present. Two-identifier patient verification on every draw.</li>
+      <li><b>Phlebotomist, SSM Health</b>, a nonprofit health system, Madison · Aug 2025 – present. I check every patient two ways before every draw.</li>
       <li><b>Co-author, IEEE EMBC 2022.</b> A wearable bio-impedance analyzer. I contributed the microcontroller firmware. <a href="https://doi.org/10.1109/EMBC48229.2022.9871827">doi:10.1109/EMBC48229.2022.9871827</a></li>
       <li><b>Assistant coach, mentor, and lead programmer</b>, BadgerBOTS FIRST LEGO League · 2015–2020.</li>
       <li><b>Small-group leader</b>, InterVarsity Christian Fellowship, UW–Eau Claire · 2024–2025.</li>
