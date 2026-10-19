@@ -65,19 +65,11 @@
   <h2>What I've built</h2>
 
   <article class="card" id="semester">
-    <h3>Semester: a deadline planner for my courses</h3>
-    <p class="what">Four courses, two inboxes, and a degree audit, pulled into one note that tells me what's due and what to do first.</p>
+    <h3>Semester: a deadline planner</h3>
+    <p class="what">It reads my course sites, two inboxes, and my degree audit and tells me what's due. It drafts; I decide. Built with Claude, in use since September 2026.</p>
     <dl>
-      <dt>What it does</dt>
-      <dd>Every 30 minutes it reads Canvas, Outlook, Gmail, and my degree audit and sorts what's due. It drafts replies for me to look at. If the model can't be reached, a rule-based plan takes over.</dd>
-      <dt>The decision that mattered most</dt>
-      <dd>It drafts. It never sends, submits, or enrolls. The rule it reads on every run:
-        <blockquote>Never send email, submit work, enroll, or change accounts without my explicit approval. Draft, then wait.</blockquote>
-        My overrides always win.</dd>
-      <dt>What went wrong</dt>
-      <dd>In <span class="n">47</span> days the model call failed <span class="n">804</span> times, most often from an expired login. The rule-based fallback kept the plan running through all of it.</dd>
     </dl>
-    <p class="source">Sources: semester/out/run.log and decisions.log (Sep 2 – Oct 18, 2026) · semester/config/instructions.md · semester/README.md</p>
+    <p class="source">Source: semester/README.md</p>
   </article>
 
   <article class="card" id="council">
@@ -86,10 +78,10 @@
     <dl>
       <dt>What I measured</dt>
       <dd><span class="num">220</span> samples across <span class="num">18</span> problems, plus head-to-head trials on an open research problem.</dd>
-      <dt>What went wrong</dt>
-      <dd>Four bugs in my own grader each made the models look more capable than they were. Every headline number I had before the fix was wrong. I rebuilt the grader with <span class="num">18</span> unit tests. Separately, once I validated the AI judge, <span class="num">17</span> of <span class="num">42</span> earlier verdicts flipped.</dd>
+      <dt>What I caught</dt>
+      <dd>I found four bugs in my grader that had inflated the models' scores, fixed them, and rebuilt the grader with <span class="num">18</span> unit tests. Separately, once I validated the AI judge, <span class="num">17</span> of <span class="num">42</span> earlier verdicts flipped.</dd>
       <dt>The decision that mattered most</dt>
-      <dd>Keep every overturned claim on the record. If a results log can delete its own mistakes, nobody can trust it, including me.</dd>
+      <dd>Every result I had to correct stays in the log, so the log can be trusted.</dd>
       <dt>What it found</dt>
       <dd>On problems with one checkable answer, the group added nothing over a simple vote. On an open problem, the cheap group found a flaw the strong model missed, at about <span class="num">1/70</span> of the cost. The strong model was still better at building the solution. That was one trial, and I was the judge, so I hold it loosely.</dd>
     </dl>
@@ -104,10 +96,10 @@
       <dd>Decoding the game's file formats, rebuilding it to run natively, and adding online play that keeps every player's game identical. The releases update themselves.</dd>
       <dt>The decision that mattered most</dt>
       <dd>Ship no game files. Each player uses their own copy of the game, and everything else gets built from it on their machine.</dd>
-      <dt>What went wrong</dt>
+      <dt>What was hard</dt>
       <dd>Keeping the Mac and Windows builds identical took two fixes: matching the original console's number rounding exactly, and finding two errors in the decompiled code. I checked <span class="num">14</span> stages: <span class="num">0</span> desyncs.</dd>
     </dl>
-    <p class="source">Sources: blinx/STATUS.md · blinx/JOURNAL.md (October 2026). The release itself is private.</p>
+    <p class="source">Sources: blinx/STATUS.md · blinx/JOURNAL.md (October 2026). The release is private because the game is copyrighted.</p>
   </article>
 
   <h2>How I check AI's work</h2>
