@@ -65,17 +65,17 @@
   <h2>What I've built</h2>
 
   <article class="card" id="semester">
-    <h3>Semester: an AI agent that runs my school term</h3>
-    <p class="what">Four courses, two inboxes, and a degree audit all have their own deadlines. Semester turns them into one note that tells me what to do first.</p>
+    <h3>Semester: a planner for my courses, inboxes, and deadlines</h3>
+    <p class="what">Four courses, two inboxes, and a degree audit all have their own deadlines. Semester pulls them into one note that tells me what's due and what to do first.</p>
     <dl>
       <dt>What it does</dt>
-      <dd>Every 30 minutes it reads Canvas, Outlook, Gmail, and my degree audit. Claude Opus decides what matters today and drafts the replies. If the model can't be reached, a rule-based plan takes over so the app never goes blind.</dd>
+      <dd>Every 30 minutes it reads Canvas, Outlook, Gmail, and my degree audit. Claude Opus sorts what's due and drafts replies for me to look at. If the model can't be reached, a rule-based plan takes over so nothing gets missed.</dd>
       <dt>The decision that mattered most</dt>
       <dd>It drafts. It never sends, submits, or enrolls. The rule it reads on every run:
         <blockquote>Never send email, submit work, enroll, or change accounts without my explicit approval. Draft, then wait.</blockquote>
         My overrides always win.</dd>
       <dt>What went wrong</dt>
-      <dd>In <span class="num">47</span> days the model call failed <span class="num">804</span> times; the most common recorded cause was an expired login. The live Canvas connection was unavailable at some point on <span class="num">36</span> of those days. Twice the model dropped assignments it had itself marked as unverifiable. The rule-based fallback kept the system running through all of it.</dd>
+      <dd>In <span class="num">47</span> days the model call failed <span class="num">804</span> times; the most common recorded cause was an expired login. The live Canvas connection was unavailable at some point on <span class="num">36</span> of those days. Twice it stopped tracking an overdue item it couldn't verify instead of asking me. The rule-based fallback kept the plan running through all of it.</dd>
     </dl>
     <p class="source">Sources: semester/out/run.log and decisions.log (Sep 2 – Oct 18, 2026) · semester/config/instructions.md · semester/README.md</p>
   </article>
